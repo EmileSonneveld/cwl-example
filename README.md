@@ -65,3 +65,25 @@ INFO [step gatherer_node_step] completed success
 INFO [workflow ] completed success
 {}INFO Final process status is success
 ```
+
+With Directory instead of File[], the output is:
+```
+INFO /home/emile/openeo/venv_python3_8/bin/cwltool 3.1.20240708091337
+INFO Resolved 'generate-and-validate-files.cwl' to 'file:///src/generate-and-validate-files.cwl'
+INFO [workflow ] start
+INFO [workflow ] starting step generate_files_step
+INFO [step generate_files_step] start
+INFO [job generate_files_step] /tmp/0kx1y3cx$ generate_files.py
+INFO [job generate_files_step] completed success
+INFO [step generate_files_step] completed success
+INFO [workflow ] starting step gatherer_node_step
+INFO [step gatherer_node_step] start
+INFO [job gatherer_node_step] /tmp/knc4uk0n$ validate_files.py \
+    /tmp/l0yjln8s/stgf8379186-24a1-40b5-9e76-7553961ae708/0kx1y3cx
+Ok PNG: /tmp/l0yjln8s/stgf8379186-24a1-40b5-9e76-7553961ae708/0kx1y3cx/green.png
+File in img tag exists: /tmp/l0yjln8s/stgf8379186-24a1-40b5-9e76-7553961ae708/0kx1y3cx/green.png
+INFO [job gatherer_node_step] completed success
+INFO [step gatherer_node_step] completed success
+INFO [workflow ] completed success
+{}INFO Final process status is success
+```
