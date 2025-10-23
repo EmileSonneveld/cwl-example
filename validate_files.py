@@ -7,13 +7,14 @@ from xml.etree import ElementTree as ET
 
 def main(argv):
     for file in argv:
-        if file.endswith(".html"):
-            with open(file, "r") as f:
+        path = os.path.abspath(file)
+        if path.endswith(".html"):
+            with open(path, "r") as f:
                 # Parse HTML and check if the <img/> tag refers to a valid file
                 index_html = f.read()
                 root = ET.fromstring(index_html)
                 img_src = root.find("img").attrib["src"]
-                if os.path.exists(img_src):
+                if os.path.exists(img_src) or os.path.exists(os.path.join(os.path.dirname(path), img_src)):
                     print(f"File in img tag exists: {img_src}")
                 else:
                     raise Exception(f"File in img tag not found! {img_src}")
