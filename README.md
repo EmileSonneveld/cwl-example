@@ -42,3 +42,26 @@ WARNING [step gatherer_node_step] completed permanentFail
 INFO [workflow ] completed permanentFail
 WARNING Final process status is permanentFail
 ```
+
+With InitialWorkDirRequirement, the output is:
+```
+INFO /home/emile/openeo/venv_python3_8/bin/cwltool 3.1.20240708091337
+INFO Resolved 'generate-and-validate-files.cwl' to 'file:///src/generate-and-validate-files.cwl'
+INFO [workflow ] start
+INFO [workflow ] starting step generate_files_step
+INFO [step generate_files_step] start
+INFO [job generate_files_step] /tmp/v0s22jg7$ generate_files.py
+INFO [job generate_files_step] completed success
+INFO [step generate_files_step] completed success
+INFO [workflow ] starting step gatherer_node_step
+INFO [step gatherer_node_step] start
+INFO [job gatherer_node_step] /tmp/kkgd3cm2$ validate_files.py \
+    /tmp/kkgd3cm2/index.html \
+    /tmp/kkgd3cm2/green.png
+File in img tag exists: green.png
+Ok PNG: /tmp/kkgd3cm2/green.png
+INFO [job gatherer_node_step] completed success
+INFO [step gatherer_node_step] completed success
+INFO [workflow ] completed success
+{}INFO Final process status is success
+```

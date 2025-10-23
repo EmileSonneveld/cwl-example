@@ -14,6 +14,10 @@ $graph:
   - id: validate_files
     class: CommandLineTool
     baseCommand: "validate_files.py"
+    requirements:
+      InitialWorkDirRequirement:
+        listing:
+          - $(inputs.validate_files_in1)
     inputs:
       validate_files_in1:
         type: File[]
